@@ -21,7 +21,7 @@ public class HealthCheckRestController {
 
     @Autowired
     public HealthCheckRestController() {
-        this.logger = LoggerFactory.getLogger(HealthCheckRestController.class);
+        this.logger = LoggerFactory.getLogger("ganeshsingh");
     }
 
     /**
@@ -32,6 +32,11 @@ public class HealthCheckRestController {
     @GetMapping(path = "/app/health", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity checkHealth() {
         logger.info("Health checking.");
+        logger.trace("A TRACE Message");
+        logger.debug("A DEBUG Message");
+        logger.info("An INFO Message");
+        logger.warn("A WARN Message");
+        logger.error("An ERROR Message");
         HashMap<String, String> map = new HashMap<>();
         map.put("status", "OK ");
         return new ResponseEntity<>(map, HttpStatus.OK);

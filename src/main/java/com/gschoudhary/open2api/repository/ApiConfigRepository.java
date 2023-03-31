@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface ApiConfigRepository extends JpaRepository<ApiConfigEntity, Long> {
-    @Query("select ac from ApiConfigEntity ac where ac.apiCode = :apiCode")
-    Optional<ApiConfigEntity> findByApiCode(@Param("apiCode") String apiCode);
+    @Query("select ac from ApiConfigEntity ac where ac.apiUniqueCode = :apiUniqueCode")
+    Optional<ApiConfigEntity> findByApiCode(@Param("apiUniqueCode") String apiCode);
 }

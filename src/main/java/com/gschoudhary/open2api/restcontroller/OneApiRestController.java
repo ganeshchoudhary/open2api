@@ -43,7 +43,7 @@ public class OneApiRestController {
     public ResponseEntity checkHealth(@RequestHeader(name = "code", defaultValue = "CODE") String code, @RequestHeader(name = "type", defaultValue = "SYNC") String requestType, @RequestBody String object) throws ExecutionException, InterruptedException {
         logger.info("making request =" + code + " " + object);
         String response = null;
-        System.out.println("current thread in controller" + Thread.currentThread());
+        logger.info("current thread in controller" + Thread.currentThread());
         if (!jsonValidator.isValidJson(object)) {
             return new ResponseEntity<>("object is not json. please make right request", HttpStatus.OK);
         }
